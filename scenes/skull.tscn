@@ -1,0 +1,138 @@
+[gd_scene load_steps=18 format=3 uid="uid://d1mhdbs52ctkj"]
+
+[ext_resource type="Script" path="res://scripts/SkullMovement.cs" id="1_1gkdv"]
+[ext_resource type="Shader" path="res://shaders/hit.gdshader" id="1_4gcg0"]
+[ext_resource type="Texture2D" uid="uid://gxim554tdxx4" path="res://assets/skull/skull_v2_1.png" id="1_40x4k"]
+[ext_resource type="Texture2D" uid="uid://cg21plftmlfp4" path="res://assets/skull/skull_v2_2.png" id="2_00n3l"]
+[ext_resource type="Texture2D" uid="uid://n24abjuemkce" path="res://assets/skull/skull_v2_3.png" id="3_5d2r0"]
+[ext_resource type="Texture2D" uid="uid://bqrri6jyhp7uc" path="res://assets/skull/skull_v2_4.png" id="4_xlmgf"]
+[ext_resource type="Script" path="res://scripts/KillZone.cs" id="5_a1rjo"]
+[ext_resource type="Script" path="res://scripts/MonsterHealth.cs" id="6_ohb1q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ebdmk"]
+radius = 3.6
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_by106"]
+resource_local_to_scene = true
+shader = ExtResource("1_4gcg0")
+shader_parameter/hit_opacity = 0.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o13ky"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_40x4k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_00n3l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5d2r0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xlmgf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kae6o"]
+size = Vector2(8, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1fq6x"]
+size = Vector2(11, 11)
+
+[sub_resource type="Animation" id="Animation_2xrs3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../AnimatedSprite2D:material:shader_parameter/hit_opacity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_xgrwp"]
+resource_name = "hit"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../AnimatedSprite2D:material:shader_parameter/hit_opacity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7b44r"]
+_data = {
+"RESET": SubResource("Animation_2xrs3"),
+"hit": SubResource("Animation_xgrwp")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lebkf"]
+radius = 34.0006
+
+[node name="Skull" type="CharacterBody2D" groups=["enemy"]]
+scale = Vector2(5, 5)
+collision_layer = 16
+script = ExtResource("1_1gkdv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.6, 2)
+shape = SubResource("CircleShape2D_ebdmk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_by106")
+sprite_frames = SubResource("SpriteFrames_o13ky")
+autoplay = "default"
+frame_progress = 0.788219
+
+[node name="KillZone" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("5_a1rjo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
+position = Vector2(9.53674e-08, 0.5)
+shape = SubResource("RectangleShape2D_kae6o")
+debug_color = Color(0.996078, 0, 0.176471, 0.419608)
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("6_ohb1q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_1fq6x")
+debug_color = Color(0.54902, 0.403922, 1, 0.176471)
+
+[node name="HitEffect" type="AnimationPlayer" parent="Hurtbox"]
+libraries = {
+"": SubResource("AnimationLibrary_7b44r")
+}
+
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_lebkf")
+debug_color = Color(0.521569, 0.792157, 0.854902, 0)
+
+[connection signal="area_entered" from="KillZone" to="KillZone" method="OnAreaEntered"]
+[connection signal="area_entered" from="DetectionArea" to="." method="OnBodyEntered"]
+[connection signal="area_exited" from="DetectionArea" to="." method="OnBodyExited"]
