@@ -30,11 +30,13 @@ position_smoothing_enabled = true
 z_index = 1
 y_sort_enabled = true
 position = Vector2(134, 98)
+loot = 3
 
 [node name="chest2" parent="." instance=ExtResource("4_is5d1")]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(541, 106)
+loot = 2
 
 [node name="interaction_manager" parent="." instance=ExtResource("4_5t5lt")]
 z_index = 99

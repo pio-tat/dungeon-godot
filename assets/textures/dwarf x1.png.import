@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xdmtf820caft"
-path="res://.godot/imported/chest_3.png-996da2f2973079801bfd278c817203be.ctex"
+uid="uid://dnwa0gemj8duu"
+path="res://.godot/imported/dwarf x1.png-388edab1d4e86ddc6b72856aa1d45e6a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/dungeon/chest/chest_3.png"
-dest_files=["res://.godot/imported/chest_3.png-996da2f2973079801bfd278c817203be.ctex"]
+source_file="res://assets/textures/dwarf x1.png"
+dest_files=["res://.godot/imported/dwarf x1.png-388edab1d4e86ddc6b72856aa1d45e6a.ctex"]
 
 [params]
 

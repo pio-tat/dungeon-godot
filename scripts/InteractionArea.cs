@@ -14,7 +14,7 @@ public partial class InteractionArea : Area2D
 	{
 		GD.Print(body.Name);
 		if(!body.IsInGroup("player") || !enabled) return;
-		GD.Print("OOOOOOO");
+	
 		InteractionManager.RegisterArea(this);
 	}
 
@@ -28,5 +28,10 @@ public partial class InteractionArea : Area2D
 	{
 		enabled = false;
 		InteractionManager.UnregisterArea(this);
+	}
+
+	public void Enable()
+	{
+		enabled = true;
 	}
 }

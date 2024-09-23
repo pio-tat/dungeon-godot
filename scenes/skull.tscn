@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://scripts/SkullMovement.cs" id="1_1gkdv"]
 [ext_resource type="Shader" path="res://shaders/hit.gdshader" id="1_4gcg0"]
-[ext_resource type="Texture2D" uid="uid://gxim554tdxx4" path="res://assets/skull/skull_v2_1.png" id="1_40x4k"]
-[ext_resource type="Texture2D" uid="uid://cg21plftmlfp4" path="res://assets/skull/skull_v2_2.png" id="2_00n3l"]
-[ext_resource type="Texture2D" uid="uid://n24abjuemkce" path="res://assets/skull/skull_v2_3.png" id="3_5d2r0"]
-[ext_resource type="Texture2D" uid="uid://bqrri6jyhp7uc" path="res://assets/skull/skull_v2_4.png" id="4_xlmgf"]
+[ext_resource type="Texture2D" uid="uid://gxim554tdxx4" path="res://assets/textures/skull/skull_v2_1.png" id="3_exlhb"]
+[ext_resource type="Texture2D" uid="uid://cg21plftmlfp4" path="res://assets/textures/skull/skull_v2_2.png" id="4_ce6db"]
 [ext_resource type="Script" path="res://scripts/KillZone.cs" id="5_a1rjo"]
+[ext_resource type="Texture2D" uid="uid://n24abjuemkce" path="res://assets/textures/skull/skull_v2_3.png" id="5_ge42v"]
+[ext_resource type="Texture2D" uid="uid://bqrri6jyhp7uc" path="res://assets/textures/skull/skull_v2_4.png" id="6_85wsd"]
 [ext_resource type="Script" path="res://scripts/MonsterHealth.cs" id="6_ohb1q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ebdmk"]
@@ -22,16 +22,16 @@ resource_local_to_scene = true
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_40x4k")
+"texture": ExtResource("3_exlhb")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_00n3l")
+"texture": ExtResource("4_ce6db")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_5d2r0")
+"texture": ExtResource("5_ge42v")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_xlmgf")
+"texture": ExtResource("6_85wsd")
 }],
 "loop": true,
 "name": &"default",

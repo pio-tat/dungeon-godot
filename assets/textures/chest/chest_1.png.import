@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjuiopqa6m051"
-path="res://.godot/imported/chest_4.png-492197faf155842dd63c37ea4121a19e.ctex"
+uid="uid://b3a4ula0i6mh1"
+path="res://.godot/imported/chest_1.png-fa8d14f2b68cfb42aee39f64786134cd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/dungeon/chest/chest_4.png"
-dest_files=["res://.godot/imported/chest_4.png-492197faf155842dd63c37ea4121a19e.ctex"]
+source_file="res://assets/textures/chest/chest_1.png"
+dest_files=["res://.godot/imported/chest_1.png-fa8d14f2b68cfb42aee39f64786134cd.ctex"]
 
 [params]
 

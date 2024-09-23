@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmwse1ep3ltvl"]
+
+[ext_resource type="Script" path="res://scripts/Item.cs" id="2_e8jge"]
+[ext_resource type="PackedScene" uid="uid://baexvvrdt746y" path="res://scenes/interaction_area.tscn" id="2_hbdua"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xk0up"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lu7k0"]
+radius = 32.5
+
+[node name="item" type="Sprite2D"]
+scale = Vector2(0.4, 0.4)
+texture = SubResource("AtlasTexture_xk0up")
+script = ExtResource("2_e8jge")
+
+[node name="InteractionArea" parent="." instance=ExtResource("2_hbdua")]
+actionName = "pick up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_lu7k0")
+debug_color = Color(0.717647, 0.380392, 0.760784, 0)

@@ -1,14 +1,15 @@
-[gd_scene load_steps=16 format=3 uid="uid://coa7m5o7pkq5g"]
+[gd_scene load_steps=17 format=3 uid="uid://coa7m5o7pkq5g"]
 
 [ext_resource type="Script" path="res://scripts/Chest.cs" id="1_fk07c"]
-[ext_resource type="Texture2D" uid="uid://xdmtf820caft" path="res://assets/dungeon/chest/chest_3.png" id="2_i5tmc"]
-[ext_resource type="Texture2D" uid="uid://bgs5pvhk1dvpp" path="res://assets/dungeon/chest/chest_open_1.png" id="3_yvcct"]
-[ext_resource type="Texture2D" uid="uid://du5ipy7uo3ohw" path="res://assets/dungeon/chest/chest_open_2.png" id="4_6ai8a"]
-[ext_resource type="Texture2D" uid="uid://cltriwohjwvto" path="res://assets/dungeon/chest/chest_open_3.png" id="5_yy023"]
-[ext_resource type="Texture2D" uid="uid://cjuiopqa6m051" path="res://assets/dungeon/chest/chest_4.png" id="6_hht2l"]
-[ext_resource type="Texture2D" uid="uid://dupec0qd5qhqb" path="res://assets/dungeon/chest/chest_open_4.png" id="6_wtayk"]
+[ext_resource type="PackedScene" uid="uid://bmwse1ep3ltvl" path="res://scenes/item.tscn" id="3_68hk4"]
+[ext_resource type="Texture2D" uid="uid://xdmtf820caft" path="res://assets/textures/chest/chest_3.png" id="3_oeymo"]
+[ext_resource type="Texture2D" uid="uid://cjuiopqa6m051" path="res://assets/textures/chest/chest_4.png" id="4_vjoud"]
+[ext_resource type="Texture2D" uid="uid://bgs5pvhk1dvpp" path="res://assets/textures/chest/chest_open_1.png" id="5_hgx5p"]
+[ext_resource type="Texture2D" uid="uid://du5ipy7uo3ohw" path="res://assets/textures/chest/chest_open_2.png" id="6_xbboa"]
 [ext_resource type="PackedScene" uid="uid://baexvvrdt746y" path="res://scenes/interaction_area.tscn" id="7_alxnr"]
-[ext_resource type="AudioStream" uid="uid://8k04n5dalwri" path="res://assets/dungeon/chest/01_chest_open_2.wav" id="9_kmel6"]
+[ext_resource type="Texture2D" uid="uid://cltriwohjwvto" path="res://assets/textures/chest/chest_open_3.png" id="7_ity1e"]
+[ext_resource type="Texture2D" uid="uid://dupec0qd5qhqb" path="res://assets/textures/chest/chest_open_4.png" id="8_5biq5"]
+[ext_resource type="AudioStream" uid="uid://8k04n5dalwri" path="res://assets/textures/chest/01_chest_open_2.wav" id="9_ryibk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eei3q"]
 radius = 11.0164
@@ -28,7 +29,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [null]
+"values": [ExtResource("3_oeymo")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -41,6 +42,42 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("item:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("item:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -2.8)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("item:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_dupw5"]
@@ -55,12 +92,25 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_i5tmc")]
+"values": [ExtResource("3_oeymo")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("item:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_sdqul"]
 resource_name = "opening"
 length = 0.6
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -71,7 +121,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("2_i5tmc"), ExtResource("6_hht2l"), ExtResource("3_yvcct"), ExtResource("4_6ai8a"), ExtResource("5_yy023"), ExtResource("6_wtayk")]
+"values": [ExtResource("3_oeymo"), ExtResource("4_vjoud"), ExtResource("5_hgx5p"), ExtResource("6_xbboa"), ExtResource("7_ity1e"), ExtResource("8_5biq5")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -84,6 +134,56 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("item:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("item:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.4, 0.55, 0.6),
+"transitions": PackedFloat32Array(0.5, -2, 1),
+"update": 0,
+"values": [Vector2(0, -2.8), Vector2(0, -7.4), Vector2(0, -4.4)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("item:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.4, 0.55, 0.6),
+"transitions": PackedFloat32Array(2, 0.5, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1.5, 1.5, 1.5, 1), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("item")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"EnableItem"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v0kwq"]
@@ -99,6 +199,13 @@ script = ExtResource("1_fk07c")
 
 [node name="sprite" type="Sprite2D" parent="."]
 scale = Vector2(0.7, 0.7)
+texture = ExtResource("3_oeymo")
+
+[node name="item" parent="." instance=ExtResource("3_68hk4")]
+z_index = 1
+position = Vector2(0, -2.8)
+texture = null
+isChestItem = true
 
 [node name="InteractionArea" parent="." instance=ExtResource("7_alxnr")]
 monitorable = false
@@ -118,4 +225,4 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("9_kmel6")
+stream = ExtResource("9_ryibk")

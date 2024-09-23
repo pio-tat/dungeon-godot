@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://8k04n5dalwri"
-path="res://.godot/imported/01_chest_open_2.wav-ed6fa5be97fb4c4d4ca8ac9b9fd604e3.sample"
+path="res://.godot/imported/01_chest_open_2.wav-88a5f88aa308b86b69d3df9a2695b7fb.sample"
 
 [deps]
 
-source_file="res://assets/dungeon/chest/01_chest_open_2.wav"
-dest_files=["res://.godot/imported/01_chest_open_2.wav-ed6fa5be97fb4c4d4ca8ac9b9fd604e3.sample"]
+source_file="res://assets/textures/chest/01_chest_open_2.wav"
+dest_files=["res://.godot/imported/01_chest_open_2.wav-88a5f88aa308b86b69d3df9a2695b7fb.sample"]
 
 [params]
 
